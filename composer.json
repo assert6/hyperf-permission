@@ -1,0 +1,13 @@
+{
+  "name": "assert6/hyperf-permission",
+  "autoload": {
+    "psr-4": {
+      "Hyperf\\Permission\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2",
+    "hyperf/di": "2.1",
+    "hyperf/utils": "2.1"
+  }
+}
