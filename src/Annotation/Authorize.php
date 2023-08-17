@@ -11,24 +11,12 @@ declare(strict_types=1);
  */
 namespace Hyperf\Permission\Annotation;
 
-use Hyperf\Permission\Authorization;
 use Hyperf\Di\Annotation\AbstractAnnotation;
 
-/**
- * @Annotation
- * @Target({"METHOD"})
- */
+#[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD)]
 class Authorize extends AbstractAnnotation
 {
-    /**
-     * @var string
-     */
-    public $token;
-
-    public function __construct($value = null)
+    public function __construct(public string $token)
     {
-        parent::__construct($value);
-        $this->bindMainProperty('token', $value);
-        Authorization::authorize($this->token);
     }
 }

@@ -13,32 +13,10 @@ namespace Hyperf\Permission\Annotation;
 
 use Hyperf\Di\Annotation\AbstractAnnotation;
 
-/**
- * @Annotation
- * @Target({"CLASS", "METHOD"})
- */
+#[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD)]
 class Permission extends AbstractAnnotation
 {
-    /**
-     * @var string
-     */
-    public $token;
-
-    public function __construct($value = null)
+    public function __construct(public string $token)
     {
-        parent::__construct($value);
-        $this->bindMainProperty('token', $value);
-    }
-
-    public function collectClass(string $className): void
-    {
-        $this->token = $this->token ?? $className;
-        parent::collectClass($className);
-    }
-
-    public function collectMethod(string $className, ?string $target): void
-    {
-        $this->token = $this->token ?? "{$className}::{$target}";
-        parent::collectMethod($className, $target);
     }
 }

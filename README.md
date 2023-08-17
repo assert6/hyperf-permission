@@ -2,9 +2,7 @@
 ```php
 class Test
 {
-    /**
-     * @Permission()
-     */
+    #[Permission]
     public function test()
     {
         return [1111];
@@ -14,15 +12,10 @@ class Test
 ```php
 class TestController
 {
-    /**
-     * @Inject()
-     * @var Test
-     */
-    protected $test;
+    #[Inject]
+    protected Test $test;
 
-    /**
-     * @Authorize('App\Test::test')
-     */
+    #[Authorize('App\Test::test')]
     public function test()
     {
         // Authorization::authorize('App\Test::test');
@@ -30,4 +23,4 @@ class TestController
     }
 }
 ```
-> 当调用`@Permission`代码时, 需要`@Authorize`或`Authorization::authorize()`授权, 否则抛`PermissionException`
+> 当调用`#[Permission]`声明的代码时, 需要`#[Authorize]`或`Authorization::authorize()`授权, 否则抛`PermissionException`

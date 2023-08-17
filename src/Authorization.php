@@ -12,8 +12,9 @@ declare(strict_types=1);
 namespace Hyperf\Permission;
 
 use Hyperf\Permission\Annotation\Permission;
-use Hyperf\Utils\Traits\Container;
+use Hyperf\Support\Traits\Container;
 
+// TODO Context
 class Authorization
 {
     use Container;
